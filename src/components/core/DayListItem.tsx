@@ -31,8 +31,9 @@ const styles = StyleSheet.create({
   },
   text: {
     color: '#9B4521',
-    fontSize: 24,
+    fontSize: 40,
     fontWeight: '300',
+    fontFamily: "Dancing"
   }
 })
 
