@@ -6,13 +6,13 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useFonts, IndieFlower_400Regular } from '@expo-google-fonts/indie-flower';
 import { DancingScript_400Regular, DancingScript_500Medium } from '@expo-google-fonts/dancing-script';
 
-import DayListItem from './src/components/core/DayListItem'
+import ProjectListItem from '../../src/components/core/ProjectListItem'
 
 SplashScreen.preventAutoHideAsync()
 
 const days = [...Array(24)].map((v, i) => i + 1)
 
-export default function App() {
+export default function AppScreen() {
   const [fontsLoaded, fontError] = useFonts({
     Indie: IndieFlower_400Regular,
     Dancing: DancingScript_400Regular,
@@ -33,7 +33,7 @@ export default function App() {
     <View style={styles.container}>
       <FlatList
         data={days}
-        renderItem={({ item }) => <DayListItem day={item} />}
+        renderItem={({ item }) => <ProjectListItem project={item} />}
         contentContainerStyle={styles.listView}
         columnWrapperStyle={styles.column}
         numColumns={3}

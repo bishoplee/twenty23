@@ -1,14 +1,17 @@
-import { StyleSheet, Text, View } from "react-native"
+import { Link } from "expo-router"
+import { Pressable, StyleSheet, Text, View } from "react-native"
 
-type dayListItem = {
-  day: number
+type projectListItem = {
+  project: number
 }
 
-const DayListItem = ({ day }: dayListItem) => {
+const ProjectListItem = ({ project }: projectListItem) => {
   return (
-    <View style={styles.box}>
-      <Text style={styles.text}>{`${day}`}</Text>
-    </View>
+    <Link href={`/projects/project${project}`} asChild>
+      <Pressable style={styles.box}>
+        <Text style={styles.text}>{`${project}`}</Text>
+      </Pressable>    
+    </Link>
   )
 }
 
@@ -37,4 +40,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default DayListItem
+export default ProjectListItem
