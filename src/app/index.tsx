@@ -1,34 +1,11 @@
-import { useEffect } from "react";
-import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, ScrollView, View, FlatList, ActivityIndicator } from 'react-native'
-import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from "expo-status-bar";
 
-import { useFonts, IndieFlower_400Regular } from '@expo-google-fonts/indie-flower';
-import { DancingScript_400Regular, DancingScript_500Medium } from '@expo-google-fonts/dancing-script';
-
-import ProjectListItem from '../../src/components/core/ProjectListItem'
-
-SplashScreen.preventAutoHideAsync()
+import ProjectListItem from '@components/core/ProjectListItem'
 
 const days = [...Array(24)].map((v, i) => i + 1)
 
-export default function AppScreen() {
-  const [fontsLoaded, fontError] = useFonts({
-    Indie: IndieFlower_400Regular,
-    Dancing: DancingScript_400Regular,
-    DancingMD: DancingScript_500Medium,
-  })
-
-  useEffect(() => {
-    if(fontsLoaded || fontError) {
-      SplashScreen.hideAsync()
-    }
-  }, [fontsLoaded, fontError])
-
-  if (!fontsLoaded && !fontError) {
-    return null
-  }
-
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <FlatList
